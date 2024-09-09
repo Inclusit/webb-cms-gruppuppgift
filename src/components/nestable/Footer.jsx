@@ -11,11 +11,11 @@ export default function Footer({ blok }) {
 
     return (
         <footer className="w-full p-8 border-t-2 border-black">
-            {/* Flex container för titeln och länkgrupperna */}
+
             <div className="flex justify-between items-start">
-                {/* Vänstra delen med titel och text */}
+                {/* Vänstra delen med titel och textfält */}
                 <div className="text-left mr-8 w-1/3 max-w-sm">
-                    {/* Rendera titeln */}
+
                     <div className="title mb-4">
                         {FooterTitle && FooterTitle.title_text ? (
                             <h1 className="text-2xl font-bold">{FooterTitle.title_text}</h1>
@@ -24,7 +24,7 @@ export default function Footer({ blok }) {
                         )}
                     </div>
 
-                    {/* Rendera textfältet */}
+
                     <div className="text_field">
                         {TextField && TextField.text_field ? (
                             <p className="text-lg">{TextField.text_field}</p>
@@ -42,7 +42,7 @@ export default function Footer({ blok }) {
                                 {/* Rubrik för varje länkgrupp */}
                                 <h2 className="text-xl font-semibold mb-4">Group {index + 1}</h2>
                                 <ul className="space-y-2">
-                                    {/* Iterera över Links i varje grupp */}
+
                                     {group.Links.map((linkItem) => (
                                         <li key={linkItem._uid}>
                                             <a href={linkItem.link_text?.cached_url || "#"} className="text-blue-500 hover:underline">
