@@ -28,6 +28,9 @@ export default function LatestUpdates({ blok }) {
             <Btn btn_text={btn_text} />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            <p>En text</p>
+            <p>En till text</p>
+            <p>En tredje text</p>
             {/* {updates_images.map((image, index) => {
                 return (
                   <div key={index} className="relative h-96">
