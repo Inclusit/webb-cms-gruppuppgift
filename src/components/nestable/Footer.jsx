@@ -14,7 +14,7 @@ export default function Footer({ blok }) {
         <footer className="w-full p-8 border-t-2 border-black">
             <div className="max-w-7xl mx-auto flex justify-between px-4">
 
-                {/* Vänstra delen med titel och textfält */}
+                {/* titel och textfält */}
                 <div className="text-left max-w-lg">
                     <div className="title mb-4">
                         {FooterTitle && FooterTitle.title_text ? (
@@ -45,17 +45,19 @@ export default function Footer({ blok }) {
                     </div>
                 </div>
 
-                {/* Högra delen med Link_groups - Flex container för länkgrupper horisontellt */}
+                {/*  Link_groups */}
                 <div className="flex space-x-10">
                     {LinkGrid && LinkGrid.Link_groups ? (
                         LinkGrid.Link_groups.map((group, index) => (
                             <div key={index} className="link_group">
-                                {/* Rubrik för varje länkgrupp */}
-                                <h2 className="text-xl font-semibold mb-4">Group {index + 1}</h2>
+
+                                <h2 className="text-xl font-semibold mb-4">
+                                    {group.Links[0]?.title_text || `Group ${index + 1}`}
+                                </h2>
                                 <ul className="space-y-2">
                                     {group.Links.map((linkItem) => (
                                         <li key={linkItem._uid}>
-                                            <a href={linkItem.link_text?.cached_url || "#"} className="text-grey-500 hover:underline">
+                                            <a href={linkItem.link_text?.cached_url || "#"} className="text-gray-400 hover:underline">
                                                 {linkItem.link_title || "Unnamed Link"}
                                             </a>
                                         </li>

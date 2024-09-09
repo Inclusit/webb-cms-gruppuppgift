@@ -64,7 +64,7 @@ export default function Header({ blok }) {
             </div>
 
             {/* Höger del: Bag-ikonen */}
-            <div className="bag-icon flex items-center space-x-2">
+            <div className="bag-icon flex items-center space-x-2 mr-4">
                 {bagIcon && bagIcon.Icon ? (
                     <img
                         src={bagIcon.Icon.filename}
