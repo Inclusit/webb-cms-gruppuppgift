@@ -26,7 +26,6 @@ import ProductThumb from "@/components/nestable/product-components/ProductThumb"
 import SearchField from "@/components/nestable/reusable-components/SearchField";
 import TextField from "@/components/nestable/reusable-components/TextField";
 import Title from "@/components/nestable/reusable-components/Title";
-import RichTextDefault from "@/components/nestable/RichText";
 import Header from "@/components/nestable/Header";
 
 const components = {
