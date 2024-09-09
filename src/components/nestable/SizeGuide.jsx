@@ -1,4 +1,4 @@
-import Link from "./reusable-components/Link"
+/* import Link from "./reusable-components/Link" */
 
 export default function SizeGuide({ blok }) {
     return (
