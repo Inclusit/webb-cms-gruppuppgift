@@ -6,7 +6,7 @@ import Page from "@/components/content-types/Page";
 
 import Teaser from "@/components/nestable/Teaser";
 import RichTextDefault from "@/components/nestable/reusable-components/RichText";
-import Banner from "@/components/nestable/Banner";
+import ImageBanner from "@/components/nestable/ImageBanner";
 import Btn from "@/components/nestable/reusable-components/Btn";
 import Hero from "@/components/nestable/Hero";
 import Input from "@/components/nestable/reusable-components/Input";
@@ -18,11 +18,11 @@ import Navigation from "@/components/nestable/Navigation";
 import ProductColor from "@/components/nestable/product-components/ProductColor";
 import ProductDesc from "@/components/nestable/product-components/ProductDesc";
 import ProductFilter from "@/components/nestable/product-components/ProductFilter";
-import ProductGrid from "@/components/nestable/ProductGrid";
+import ProductList from "@/components/nestable/ProductList";
 import ProductListDesc from "@/components/nestable/ProductListDesc";
 import ProductPage from "@/components/nestable/ProductPage";
 import ProductSizing from "@/components/nestable/product-components/ProductSizing";
-import ProductThumb from "@/components/nestable/product-components/ProductThumb";
+import ImageWithText from "@/components/nestable/product-components/ImageWithText";
 import SearchField from "@/components/nestable/reusable-components/SearchField";
 import TextField from "@/components/nestable/reusable-components/TextField";
 import Title from "@/components/nestable/reusable-components/Title";
@@ -35,7 +35,7 @@ const components = {
   page: Page,
   teaser: Teaser,
   richtext: RichTextDefault,
-  banner: Banner,
+  image_banner: ImageBanner,
   btn: Btn,
   hero: Hero,
   Input: Input,
@@ -47,11 +47,11 @@ const components = {
   product_color: ProductColor,
   product_description: ProductDesc,
   product_filter: ProductFilter,
-  product_grid: ProductGrid,
+  product_list: ProductList,
   product_list_description: ProductListDesc,
   product_page: ProductPage,
   product_sizing: ProductSizing,
-  product_thumbnail: ProductThumb,
+  image_with_text: ImageWithText,
   size_guide: SizeGuide,
   Search_field: SearchField,
   text_field: TextField,
