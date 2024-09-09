@@ -10,7 +10,7 @@ import Banner from "@/components/nestable/Banner";
 import Btn from "@/components/nestable/reusable-components/Btn";
 import Hero from "@/components/nestable/Hero";
 import Input from "@/components/nestable/reusable-components/Input";
-import Link from "@/components/nestable/reusable-components/Link";
+import Links from "@/components/nestable/reusable-components/Links";
 import LinkGrid from "@/components/nestable/LinkGrid";
 import LinkGroup from "@/components/nestable/LinkGroup";
 import Logo from "@/components/nestable/Logo";
@@ -36,7 +36,7 @@ const components = {
   "btn": Btn,
   "hero": Hero,
   "Input": Input,
-  "link": Link,
+  "link": Links,
   "Link_grid": LinkGrid,
   "Link_group": LinkGroup,
   "Logo": Logo,
@@ -52,8 +52,6 @@ const components = {
   "Search_field": SearchField,
   "text_field": TextField,
   "title": Title,
-  "teaser": Teaser,
-  "richtext": RichTextDefault,
   "header": Header,
 }
 

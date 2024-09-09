@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Links from "./reusable-components/Links"
 
 export default function LinkGrid({ blok }) {
     return (

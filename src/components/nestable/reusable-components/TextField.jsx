@@ -1,7 +1,3 @@
 export default function TextField({ blok }) {
-    return (
-        <>
-            Hello from text field
-        </>
-    )
+  return <>{blok.text_field}</>;
 }
