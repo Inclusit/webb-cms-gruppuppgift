@@ -1,7 +1,3 @@
 export default function Title({ blok }) {
-    return (
-        <>
-            Hello from title
-        </>
-    )
+  return <>{blok.title_text}</>;
 }
