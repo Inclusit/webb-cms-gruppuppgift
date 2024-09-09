@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function Footer({ blok }) {
     if (!blok || !Array.isArray(blok)) {
         console.error("blok is undefined or not an array");
@@ -36,8 +38,8 @@ export default function Footer({ blok }) {
                         {EmailComponent ? (
                             <input
                                 type="text"
-                                placeholder="Email..."
-                                className="border-2 border-black mt-4 p-2"
+                                placeholder="Email Adress"
+                                className="border-2 border-black mt-4 p-2 w-full md:w-96"
                             />
                         ) : (
                             <p>No Input field available</p>
@@ -57,9 +59,9 @@ export default function Footer({ blok }) {
                                 <ul className="space-y-2">
                                     {group.Links.map((linkItem) => (
                                         <li key={linkItem._uid}>
-                                            <a href={linkItem.link_text?.cached_url || "#"} className="text-gray-400 hover:underline">
+                                            <Link href={linkItem.link_text?.cached_url || "#"} className="text-gray-400 hover:underline">
                                                 {linkItem.link_title || "Unnamed Link"}
-                                            </a>
+                                            </Link>
                                         </li>
                                     ))}
                                 </ul>

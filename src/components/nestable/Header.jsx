@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function Header({ blok }) {
     if (!blok || !Array.isArray(blok)) {
         console.error("blok is undefined or not an array");
@@ -20,16 +22,16 @@ export default function Header({ blok }) {
                 bannerComponent && (
                     <div className="w-full bg-black py-2 text-center text-sm">
                         <div className="max-w-7xl mx-auto flex justify-between items-center px-4">
-                            {/* Första titeln */}
+
                             <span className="text-white">{bannerComponent.banner_text[0]?.title_text}</span>
 
-                            {/* Andra titeln */}
+
                             <span className="text-white">{bannerComponent.banner_text[1]?.title_text}</span>
 
-                            {/* Länk */}
-                            <a href={bannerComponent.banner_text[2]?.link_text?.cached_url || "#"} className="text-white hover:underline">
+
+                            <Link href={bannerComponent.banner_text[2]?.link_text?.cached_url || "#"} className="text-white hover:underline">
                                 {bannerComponent.banner_text[2]?.link_title || "Support"}
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 )
@@ -53,9 +55,9 @@ export default function Header({ blok }) {
                             <ul className="flex space-x-6">
                                 {navigationComponent.Nav_link.map((linkItem) => (
                                     <li key={linkItem._uid}>
-                                        <a href={linkItem.link_text?.cached_url || "#"} className="text-lg hover:underline">
+                                        <Link href={linkItem.link_text?.cached_url || "#"} className="text-lg hover:underline">
                                             {linkItem.link_title || "Unnamed Link"}
-                                        </a>
+                                        </Link>
                                     </li>
                                 ))}
                             </ul>
