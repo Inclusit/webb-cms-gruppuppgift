@@ -2,7 +2,7 @@
 import Footer from "../nestable/Footer";
 import Header from "../nestable/Header";
 export default function Layout({ config, children }) {
-    console.log("config data:", config);
+    /* console.log("config data:", config); */
     //Create at least a header and footer component
     //Use console.log to determine blok object structure if unsure...
     if (!config || !config.content || !config.content.Header) {

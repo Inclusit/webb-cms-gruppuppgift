@@ -27,6 +27,8 @@ import SearchField from "@/components/nestable/reusable-components/SearchField";
 import TextField from "@/components/nestable/reusable-components/TextField";
 import Title from "@/components/nestable/reusable-components/Title";
 import Header from "@/components/nestable/Header";
+import ImageBlock from "@/components/nestable/reusable-components/ImageBlock";
+import LatestUpdates from "@/components/nestable/LatestUpdates";
 
 const components = {
   "page": Page,
@@ -53,6 +55,8 @@ const components = {
   "text_field": TextField,
   "title": Title,
   "header": Header,
+  "image_block": ImageBlock,
+  "latest_updates": LatestUpdates
 }
 
 storyblokInit({

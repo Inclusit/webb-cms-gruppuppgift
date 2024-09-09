@@ -11,26 +11,29 @@ export default function Hero({ blok }) {
 
   return (
     <>
-      <div className="flex flex-col items-center justify-center min-h-screen p-11">
-        <div className="text-center mb-4">
-          <div className="mb-7 text-6xl font-semibold">
+      <div className="flex flex-col items-center justify-center min-h-screen p-6 mt-14">
+        <div className="text-center mb-6">
+          <h1 className="mb-8 text-4xl font-semibold lg:text-6xl">
             <Title blok={{ title_text }} />
-          </div>
+          </h1>
 
-          <span className="mb-8 text-gray-500">
+          <p className="mb-4 text-gray-500 text-lg max-w-3xl mx-auto">
             <TextField blok={{ text_field }} />
-          </span>
+          </p>
         </div>
-        <div className="mb-8">
+
+        <div className="mb-10">
           <Btn btn_text={btn_text} />
         </div>
-        <div className="mb-8">
+        <div className="w-full max-w-5xl mx-auto">
           {hero_image && (
             <Image
               src={hero_image.filename}
               alt={hero_image.alt || "Image"}
-              width="365"
-              height="375"
+              layout="responsive"
+              width={1200}
+              height={600}
+              className="rounded-md"
             />
           )}
         </div>
