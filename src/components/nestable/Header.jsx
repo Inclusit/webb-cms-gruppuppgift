@@ -10,23 +10,23 @@ export default function Header({ blok }) {
     const searchFieldComponent = blok.find(item => item.component === "Search_field");
 
     return (
-        <header className="w-full w-full p-4 border-b-2 border-black p-4">
-
+        <header className="w-full p-4 border-b-2 border-black flex justify-between items-center">
+            {/* Logotypen */}
             <div className="logo">
                 {logoComponent && logoComponent.Logo ? (
-                    <h1>{logoComponent.Logo}</h1>
+                    <h1 className="text-2xl font-bold">{logoComponent.Logo}</h1>
                 ) : (
-                    <h1>No Logo</h1>
+                    <h1 className="text-2xl font-bold">No Logo</h1>
                 )}
             </div>
 
-
+            {/* Navigationen */}
             <nav className="navigation">
                 {navigationComponent && navigationComponent.Nav_link && navigationComponent.Nav_link.length > 0 ? (
-                    <ul>
+                    <ul className="flex space-x-6">
                         {navigationComponent.Nav_link.map((linkItem) => (
                             <li key={linkItem._uid}>
-                                <a href={linkItem.link_text?.cached_url || "#"}>
+                                <a href={linkItem.link_text?.cached_url || "#"} className="text-lg hover:underline">
                                     {linkItem.link_title || "Unnamed Link"}
                                 </a>
                             </li>
@@ -37,10 +37,14 @@ export default function Header({ blok }) {
                 )}
             </nav>
 
-
+            {/* Sökfältet */}
             <div className="search">
                 {searchFieldComponent ? (
-                    <input type="text" placeholder="Search..." />
+                    <input
+                        type="text"
+                        placeholder="Search..."
+                        className="border-2 border-gray-300 rounded-lg p-2"
+                    />
                 ) : (
                     <p>No search field available</p>
                 )}

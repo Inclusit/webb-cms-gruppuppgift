@@ -1,4 +1,5 @@
 //Uses config set global components for the layout4
+import Footer from "../nestable/Footer";
 import Header from "../nestable/Header";
 export default function Layout({ config, children }) {
     console.log("config data:", config);
@@ -12,15 +13,14 @@ export default function Layout({ config, children }) {
     return (
         <>
             <header>
-                {config.content.Header ? (
-                    <Header blok={config.content.Header} />
-                ) : (
-                    <p>No Header available</p>
-                )}
+                <Header blok={config.content.Header} />
             </header>
 
             <main>{children}</main>
-            <footer></footer>
+
+            <footer>
+                <Footer blok={config.content.Footer} />
+            </footer>
         </>
     );
 }
