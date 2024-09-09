@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import LinkGrid from './LinkGrid';
 
 export default function Footer({ blok }) {
     if (!blok || !Array.isArray(blok)) {
@@ -9,7 +10,7 @@ export default function Footer({ blok }) {
     // Hämta titeln, textfältet och länkgrupp från blok-arrayen
     const FooterTitle = blok.find(item => item.component === "title");
     const TextField = blok.find(item => item.component === "text_field");
-    const LinkGrid = blok.find(item => item.component === "Link_grid");
+    const linkGridData = blok.find(item => item.component === "Link_grid");
     const EmailComponent = blok.find(item => item.component === "Input");
 
     return (
@@ -48,29 +49,8 @@ export default function Footer({ blok }) {
                 </div>
 
                 {/*  Link_groups */}
-                <div className="flex space-x-10">
-                    {LinkGrid && LinkGrid.Link_groups ? (
-                        LinkGrid.Link_groups.map((group, index) => (
-                            <div key={index} className="link_group">
+                <LinkGrid linkGridData={linkGridData} />
 
-                                <h2 className="text-xl font-semibold mb-4">
-                                    {group.Links[0]?.title_text || `Group ${index + 1}`}
-                                </h2>
-                                <ul className="space-y-2">
-                                    {group.Links.map((linkItem) => (
-                                        <li key={linkItem._uid}>
-                                            <Link href={linkItem.link_text?.cached_url || "#"} className="text-gray-400 hover:underline">
-                                                {linkItem.link_title || "Unnamed Link"}
-                                            </Link>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        ))
-                    ) : (
-                        <p>No Links available</p>
-                    )}
-                </div>
             </div>
         </footer>
     );
