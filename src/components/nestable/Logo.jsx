@@ -1,7 +1,12 @@
-export default function Logo({ blok }) {
+
+export default function Logo({ logoComponent }) {
     return (
-        <>
-            Hello from logo
-        </>
-    )
+        <div className="logo">
+            {logoComponent && logoComponent.Logo ? (
+                <h1 className="text-2xl font-bold">{logoComponent.Logo}</h1>
+            ) : (
+                <h1 className="text-2xl font-bold">No Logo</h1>
+            )}
+        </div>
+    );
 }
