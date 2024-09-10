@@ -12,7 +12,6 @@ export default function ImageBanner({ blok }) {
                     alt={alt || "Banner Image"}
                     layout="fill"
                     objectFit="cover"
-                    className="rounded-md"
                 />
             </div>
         </>

@@ -22,7 +22,7 @@ export default function Hero({ blok }) {
           </p>
         </div>
 
-        <div className="mb-10">
+        <div className="mb-10 ">
           <Btn btn_text={btn_text} />
         </div>
         <div className="w-full max-w-5xl mx-auto">
