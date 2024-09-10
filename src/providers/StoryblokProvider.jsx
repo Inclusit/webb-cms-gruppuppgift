@@ -35,6 +35,7 @@ import ShopList from "@/components/nestable/ShopList";
 
 
 
+
 const components = {
   page: Page,
   teaser: Teaser,
@@ -52,8 +53,8 @@ const components = {
   product_color: ProductColor,
   product_description: ProductDesc,
   product_filter: ProductFilter,
-  product_grid: ProductGrid,
   product_list_description: ProductListDesc,
+  product_grid: ProductGrid,
   product_page: ProductPage,
   product_sizing: ProductSizing,
   product_thumbnail: ProductThumb,
