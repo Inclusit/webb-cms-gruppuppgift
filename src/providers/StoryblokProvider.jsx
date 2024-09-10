@@ -30,7 +30,7 @@ import Header from "@/components/nestable/Header";
 import ImageBlock from "@/components/nestable/reusable-components/ImageBlock";
 import LatestUpdates from "@/components/nestable/LatestUpdates";
 import HeaderBanner from "@/components/nestable/HeaderBanner";
-import ShopListPage from "@/components/nestable/ShopListPage";
+import ShopList from "@/components/nestable/ShopList";
 
 
 
@@ -62,7 +62,7 @@ const components = {
   "header": Header,
   "image_block": ImageBlock,
   "latest_updates": LatestUpdates,
-  "shopListPage": ShopListPage,
+  "Shop_list": ShopList,
 }
 
 storyblokInit({
