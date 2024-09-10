@@ -29,51 +29,51 @@ import Title from "@/components/nestable/reusable-components/Title";
 import Header from "@/components/nestable/Header";
 import ImageBlock from "@/components/nestable/reusable-components/ImageBlock";
 import LatestUpdates from "@/components/nestable/LatestUpdates";
+import SizeGuide from "@/components/nestable/product-components/SizeGuide";
 import HeaderBanner from "@/components/nestable/HeaderBanner";
 import ShopList from "@/components/nestable/ShopList";
 
 
 
 const components = {
-  "page": Page,
-  "teaser": Teaser,
-  "richtext": RichTextDefault,
-  "banner": Banner,
+  page: Page,
+  teaser: Teaser,
+  richtext: RichTextDefault,
+  banner: Banner,
   "headerBanner": HeaderBanner,
-  "btn": Btn,
-  "hero": Hero,
-  "Input": Input,
-  "link": Links,
-  "Link_grid": LinkGrid,
-  "Link_group": LinkGroup,
-  "Logo": Logo,
-  "Navigation": Navigation,
-  "product_color": ProductColor,
-  "product_description": ProductDesc,
-  "product_filter": ProductFilter,
-  "product_grid": ProductGrid,
-  "product_list_description": ProductListDesc,
-  "product_page": ProductPage,
-  "product_sizing": ProductSizing,
-  "product_thumbnail": ProductThumb,
-  "Search_field": SearchField,
-  "text_field": TextField,
-  "title": Title,
-  "header": Header,
-  "image_block": ImageBlock,
-  "latest_updates": LatestUpdates,
-  "Shop_list": ShopList,
-}
+  btn: Btn,
+  hero: Hero,
+  Input: Input,
+  link: Links,
+  Link_grid: LinkGrid,
+  Link_group: LinkGroup,
+  Logo: Logo,
+  Navigation: Navigation,
+  product_color: ProductColor,
+  product_description: ProductDesc,
+  product_filter: ProductFilter,
+  product_grid: ProductGrid,
+  product_list_description: ProductListDesc,
+  product_page: ProductPage,
+  product_sizing: ProductSizing,
+  product_thumbnail: ProductThumb,
+  size_guide: SizeGuide,
+  Search_field: SearchField,
+  text_field: TextField,
+  title: Title,
+  header: Header,
+  image_block: ImageBlock,
+  latest_updates: LatestUpdates,
+  "Shop_list": ShopList,,
+};
 
 storyblokInit({
   accessToken: StoryblokCMS.TOKEN,
 
   use: [apiPlugin],
-  components
+  components,
 });
 
 export default function StoryblokProvider({ children }) {
-  return (
-    children
-  );
+  return children;
 }
