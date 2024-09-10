@@ -1,4 +1,4 @@
-import LinkGroup from './LinkGroup'; // Importera LinkGroup-komponenten
+import LinkGroup from './LinkGroup';
 
 export default function LinkGrid({ linkGridData }) {
     return (
