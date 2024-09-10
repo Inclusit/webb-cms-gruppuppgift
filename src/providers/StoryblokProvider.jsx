@@ -40,7 +40,7 @@ const components = {
   teaser: Teaser,
   richtext: RichTextDefault,
   banner: Banner,
-  "headerBanner": HeaderBanner,
+  headerBanner: HeaderBanner,
   btn: Btn,
   hero: Hero,
   Input: Input,
@@ -64,7 +64,7 @@ const components = {
   header: Header,
   image_block: ImageBlock,
   latest_updates: LatestUpdates,
-  "Shop_list": ShopList,,
+  Shop_list: ShopList,
 };
 
 storyblokInit({
