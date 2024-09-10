@@ -1,13 +1,19 @@
 export default function ProductDesc({ blok }) {
-    console.log("product desc", blok);
+    const { product_title, product_price, product_description } = blok;
     return (
       <>
         <div className=" text-gray-900 md:flex-1 px-4">
-          <h2 className="text-3xl font-bold">Hello from product title</h2>
-          <p className=" mb-6">Hello frm product price</p>
+          <h2 className="text-3xl font-bold">
+            {product_title || "Placeholder Title"}
+          </h2>
+          <p className=" mb-4">
+            {product_price || "0"}$
+          </p>
           <div className="flex mb-4">
             <div className="text-base text-gray-700">
-              <p className="">hello from product description</p>
+              <p className="">
+                {product_description || "No description available"}
+              </p>
             </div>
           </div>
         </div>

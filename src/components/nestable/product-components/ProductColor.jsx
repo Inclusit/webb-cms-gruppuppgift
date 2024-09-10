@@ -1,8 +1,8 @@
 import Btn from "../reusable-components/Btn";
 
 export default function ProductColor({ blok }) {
-    
-
+  const { product_color_btn = [] } = blok[0] || {};
+  /* console.log("product_color_btn", product_color_btn); */
   return (
     <>
       <div className="md:flex-1 px-4">
