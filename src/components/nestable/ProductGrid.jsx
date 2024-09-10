@@ -1,11 +1,11 @@
 export default function ProductGrid({ products }) {
-    // Lägg till kontroll för att säkerställa att products är definierad och en array
+
     if (!products || !Array.isArray(products)) {
-        return <p>No products available</p>; // Du kan visa ett meddelande om inga produkter finns
+        return <p>No products available</p>;
     }
 
     return (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-10 pt-10"> {/* Lägger till margin med m-6 */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-10 pt-10">
             {products.map((product) => (
                 <div key={product._uid} className="bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105 hover:shadow-2xl" >
                     <img
