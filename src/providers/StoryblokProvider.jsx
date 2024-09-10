@@ -29,12 +29,17 @@ import Title from "@/components/nestable/reusable-components/Title";
 import Header from "@/components/nestable/Header";
 import ImageBlock from "@/components/nestable/reusable-components/ImageBlock";
 import LatestUpdates from "@/components/nestable/LatestUpdates";
+import HeaderBanner from "@/components/nestable/HeaderBanner";
+import ShopListPage from "@/components/nestable/ShopListPage";
+
+
 
 const components = {
   "page": Page,
   "teaser": Teaser,
   "richtext": RichTextDefault,
   "banner": Banner,
+  "headerBanner": HeaderBanner,
   "btn": Btn,
   "hero": Hero,
   "Input": Input,
@@ -56,7 +61,8 @@ const components = {
   "title": Title,
   "header": Header,
   "image_block": ImageBlock,
-  "latest_updates": LatestUpdates
+  "latest_updates": LatestUpdates,
+  "shopListPage": ShopListPage,
 }
 
 storyblokInit({
