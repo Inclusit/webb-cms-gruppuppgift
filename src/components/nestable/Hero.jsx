@@ -22,7 +22,7 @@ export default function Hero({ blok }) {
           </p>
         </div>
 
-        <div className="mb-10">
+        <div className="mb-10 ">
           <Btn btn_text={btn_text} />
         </div>
         <div className="w-full max-w-5xl mx-auto">
@@ -31,8 +31,8 @@ export default function Hero({ blok }) {
               src={hero_image.filename}
               alt={hero_image.alt || "Image"}
               layout="responsive"
-              width={1200}
-              height={600}
+              width={1115}
+              height={510}
               className="rounded-md"
             />
           )}
