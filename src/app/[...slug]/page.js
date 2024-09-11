@@ -21,10 +21,21 @@ export async function generateMetadata({params}) {
 
 //Params are passed to the CMSPage component and used to fetch the story
 //This function is called for each item in the paths array returned from generateStaticParams func
-export default async function CMSPage({ params }) {
+export default async function CMSPage({ params, searchParams }) {
   try {
     const currentStory = await StoryblokCMS.getStory(params);
     if (!currentStory) throw new Error();
+
+        // Hantera query-parametrar (som `category`)
+        const category = searchParams?.category?.toLowerCase() || null;
+        
+
+        // Om du har en `shop-list` page, kan du filtrera produkterna här baserat på `category`
+        if (params.slug.includes("shop-list") && category) {
+          currentStory.content.product_thumbnails = currentStory.content.product_thumbnails.filter(
+            (product) => product.product_category.toLowerCase().includes(category)
+          );
+        }
 
     return <StoryblokStory story={currentStory} />;
   } catch (error) {
