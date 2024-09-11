@@ -33,6 +33,7 @@ import SizeGuide from "@/components/nestable/product-components/SizeGuide";
 import HeaderBanner from "@/components/nestable/HeaderBanner";
 import ShopList from "@/components/nestable/ShopList";
 import ProductGrid from "@/components/nestable/ProductGrid";
+import AboutSection from "@/components/nestable/AboutSection";
 
 const components = {
   page: Page,
@@ -65,6 +66,7 @@ const components = {
   image_block: ImageBlock,
   latest_updates: LatestUpdates,
   Shop_list: ShopList,
+  about_section: AboutSection
 };
 
 storyblokInit({
