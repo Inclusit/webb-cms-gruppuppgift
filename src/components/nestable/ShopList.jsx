@@ -1,9 +1,21 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";  // Ändrat från useRouter till useSearchParams
 import ProductFilter from "../nestable/product-components/ProductFilter";
 import BtnGrid from "./reusable-components/BtnGrid";
 
 export default function ShopList({ blok }) {
     const [selectedCategory, setSelectedCategory] = useState(null);
+
+    // Använd `useSearchParams` för att få query-parametrar från URL:en
+    const searchParams = useSearchParams();
+    const category = searchParams.get("category");
+
+    // Uppdatera vald kategori baserat på URL-query-parametern
+    useEffect(() => {
+        if (category) {
+            setSelectedCategory(category.toLowerCase());
+        }
+    }, [category]);
 
     const handleFilterClick = (category) => {
         setSelectedCategory(category.toLowerCase());
@@ -27,14 +39,19 @@ export default function ShopList({ blok }) {
                                 </p>
                             );
                         case "btn_grid":
-
                             return <BtnGrid key={item._uid} item={item} handleFilterClick={handleFilterClick} />;
-
                         case "product_grid":
+                            // Filtrera produkterna baserat på vald kategori
+                            const filteredProducts = selectedCategory
+                                ? item.product_thumbnails.filter((product) =>
+                                    product.product_category.toLowerCase().includes(selectedCategory)
+                                )
+                                : item.product_thumbnails;
+
                             return (
                                 <ProductFilter
                                     key={item._uid}
-                                    products={item.product_thumbnails}
+                                    products={filteredProducts}
                                     selectedCategory={selectedCategory}
                                 />
                             );
