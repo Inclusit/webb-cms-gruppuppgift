@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-export default function Banner({ blok }) {
+export default function ImageBanner({ blok }) {
     const { banner_image } = blok;
     const { filename, alt } = banner_image;
     
@@ -12,7 +12,6 @@ export default function Banner({ blok }) {
                     alt={alt || "Banner Image"}
                     layout="fill"
                     objectFit="cover"
-                    className="rounded-md"
                 />
             </div>
         </>

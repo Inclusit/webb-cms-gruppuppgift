@@ -6,7 +6,7 @@ import Page from "@/components/content-types/Page";
 
 import Teaser from "@/components/nestable/Teaser";
 import RichTextDefault from "@/components/nestable/reusable-components/RichText";
-import Banner from "@/components/nestable/Banner";
+import ImageBanner from "@/components/nestable/ImageBanner";
 import Btn from "@/components/nestable/reusable-components/Btn";
 import Hero from "@/components/nestable/Hero";
 import Input from "@/components/nestable/reusable-components/Input";
@@ -18,11 +18,11 @@ import Navigation from "@/components/nestable/Navigation";
 import ProductColor from "@/components/nestable/product-components/ProductColor";
 import ProductDesc from "@/components/nestable/product-components/ProductDesc";
 import ProductFilter from "@/components/nestable/product-components/ProductFilter";
-import ProductGrid from "@/components/nestable/ProductGrid";
+import ProductList from "@/components/nestable/ProductList";
 import ProductListDesc from "@/components/nestable/ProductListDesc";
-import ProductPage from "@/components/nestable/ProductPage";
+import ProductPage from "@/components/content-types/ProductPage";
 import ProductSizing from "@/components/nestable/product-components/ProductSizing";
-import ProductThumb from "@/components/nestable/product-components/ProductThumb";
+import ImageWithText from "@/components/nestable/product-components/ImageWithText";
 import SearchField from "@/components/nestable/reusable-components/SearchField";
 import TextField from "@/components/nestable/reusable-components/TextField";
 import Title from "@/components/nestable/reusable-components/Title";
@@ -32,15 +32,13 @@ import LatestUpdates from "@/components/nestable/LatestUpdates";
 import SizeGuide from "@/components/nestable/product-components/SizeGuide";
 import HeaderBanner from "@/components/nestable/HeaderBanner";
 import ShopList from "@/components/nestable/ShopList";
-
-
-
+import ProductGrid from "@/components/nestable/ProductGrid";
 
 const components = {
   page: Page,
   teaser: Teaser,
   richtext: RichTextDefault,
-  banner: Banner,
+  image_banner: ImageBanner,
   headerBanner: HeaderBanner,
   btn: Btn,
   hero: Hero,
@@ -48,6 +46,7 @@ const components = {
   link: Links,
   Link_grid: LinkGrid,
   Link_group: LinkGroup,
+  product_list: ProductList,
   Logo: Logo,
   Navigation: Navigation,
   product_color: ProductColor,
@@ -57,7 +56,7 @@ const components = {
   product_grid: ProductGrid,
   product_page: ProductPage,
   product_sizing: ProductSizing,
-  product_thumbnail: ProductThumb,
+  image_with_text: ImageWithText,
   size_guide: SizeGuide,
   Search_field: SearchField,
   text_field: TextField,

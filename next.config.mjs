@@ -1,9 +1,23 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    images: {
-        domains: ["a.storyblok.com"],
-        formats: ["image/avif", "image/webp"],
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "a.storyblok.com",
+        port: "",
+        pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "placehold.co",
+        port: "",
+        pathname: "/**",
+      },
+    ],
+    formats: ["image/avif", "image/webp"],
+    dangerouslyAllowSVG: true,
+  },
 };
 
 export default nextConfig;

@@ -9,8 +9,6 @@ export default function LatestUpdates({ blok }) {
     const text_field = updates_description?.[0]?.text_field || "Default Description";
     const title_text = updates_title?.[0]?.title_text || "Default Title";
 
-    {console.log(updates_images)}
-
     return (
       <>
         <div className="flex flex-col items-center justify-center min-h-screen p-6 ">
