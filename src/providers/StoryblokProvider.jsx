@@ -20,7 +20,7 @@ import ProductDesc from "@/components/nestable/product-components/ProductDesc";
 import ProductFilter from "@/components/nestable/product-components/ProductFilter";
 import ProductList from "@/components/nestable/ProductList";
 import ProductListDesc from "@/components/nestable/ProductListDesc";
-import ProductPage from "@/components/nestable/ProductPage";
+import ProductPage from "@/components/content-types/ProductPage";
 import ProductSizing from "@/components/nestable/product-components/ProductSizing";
 import ImageWithText from "@/components/nestable/product-components/ImageWithText";
 import SearchField from "@/components/nestable/reusable-components/SearchField";
@@ -33,7 +33,6 @@ import SizeGuide from "@/components/nestable/product-components/SizeGuide";
 import HeaderBanner from "@/components/nestable/HeaderBanner";
 import ShopList from "@/components/nestable/ShopList";
 import ProductGrid from "@/components/nestable/ProductGrid";
-
 
 const components = {
   page: Page,

@@ -1,10 +1,22 @@
 import Links from "../reusable-components/Links";
 
 export default function SizeGuide({ blok }) {
+  console.log("blok", blok)
+  const { guide_link = [], link_subtitle } = blok || {};
+
   return (
     <>
       <div className="md:flex-1 px-4">
-        <div>Hello from size guide</div>
+        <div>
+          {guide_link.map((link) => (
+            <Links
+              key={link._uid}
+              blok={link} 
+              
+            />
+          ))}
+        </div>
+        <p className="text-gray-600 mt-4 text-sm">{link_subtitle}</p>
       </div>
     </>
   );

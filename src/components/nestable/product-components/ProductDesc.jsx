@@ -1,5 +1,10 @@
 export default function ProductDesc({ blok }) {
-    const { product_title, product_price, product_description } = blok;
+    const {
+      product_title = "Placeholder Title",
+      product_price = "0",
+      product_description = "No description available",
+    } = blok || {};
+
     return (
       <>
         <div className=" text-gray-900 md:flex-1 px-4">
