@@ -1,9 +1,14 @@
-export default function Logo({ logoComponent, linkTitle }) {
-    console.log(logoComponent, linkTitle);
+import Link from "next/link";
+
+export default function Logo({ linkComponent }) {
+    const linkUrl = linkComponent?.link_text?.cached_url;
+
     return (
         <div className="logo">
-            {linkTitle ? (
-                <h1 className="text-2xl font-bold">{linkTitle}</h1>
+            {linkUrl ? (
+                <Link href={`/${linkUrl}`} className="text-2xl font-bold">
+                    {linkComponent.link_title || "Unnamed Link"}
+                </Link>
             ) : (
                 <h1 className="text-2xl font-bold">No Logo</h1>
             )}

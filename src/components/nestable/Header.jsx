@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import Navigation from './Navigation';
 import Logo from './Logo';
 import SearchField from './SearchField';
@@ -29,7 +28,7 @@ export default function Header({ blok }) {
                 <div className="flex items-center space-x-6 flex-grow">
 
                     {/* Logotypen */}
-                    <Logo logoComponent={logoComponent} linkTitle={logoLinkComponent?.link_title} />
+                    <Logo linkComponent={logoLinkComponent} />
 
 
                     {/* Navigationen */}

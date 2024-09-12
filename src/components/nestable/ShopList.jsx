@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useSearchParams } from "next/navigation";  // Ändrat från useRouter till useSearchParams
+import { useSearchParams } from "next/navigation";
 import ProductFilter from "../nestable/product-components/ProductFilter";
 import BtnGrid from "./reusable-components/BtnGrid";
 
@@ -47,6 +47,14 @@ export default function ShopList({ blok }) {
                                     product.product_category.toLowerCase().includes(selectedCategory)
                                 )
                                 : item.product_thumbnails;
+
+                            if (filteredProducts.length === 0) {
+                                return (
+                                    <p key={item._uid} className="text-red-500 font-semibold m-5">
+                                        Inga produkter hittades för kategorin "{selectedCategory}".
+                                    </p>
+                                );
+                            }
 
                             return (
                                 <ProductFilter

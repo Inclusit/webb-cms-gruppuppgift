@@ -30,7 +30,7 @@ export default function SearchField({ searchFieldComponent }) {
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                     />
-                    <button type="submit">Sök</button>
+                    <button className="border p-2" type="submit">Sök</button>
                 </form>
             ) : (
                 <p>No search field available</p>
