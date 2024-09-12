@@ -35,9 +35,9 @@ export default function LatestUpdates({ blok }) {
                 <div key={imageBlock._uid} className="relative h-full">
                   <Image
                     src={imageBlock.image.filename}
-                    alt={imageBlock.image.alt || `Image`}
+                    alt={imageBlock.image.alt || "https://placehold.co/300x400"}
                     width={300}
-                    height={400} 
+                    height={400}
                     className="rounded-md object-cover h-full"
                   />
                 </div>

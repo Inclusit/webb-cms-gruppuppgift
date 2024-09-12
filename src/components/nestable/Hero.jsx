@@ -30,7 +30,7 @@ export default function Hero({ blok }) {
         <div className="w-full max-w-5xl mx-auto">
           {hero_image && (
             <Image
-              src={hero_image.filename}
+              src={hero_image?.filename || "https://placehold.co/1115x510"}
               alt={hero_image.alt || "Image"}
               layout="responsive"
               width={1115}
