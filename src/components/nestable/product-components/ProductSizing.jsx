@@ -1,8 +1,12 @@
 import Btn from "../reusable-components/Btn";
 
 export default function ProductSizing({ blok }) {
-  const { product_size, product_size_btn = [] } = blok?.[0] || {};
-  const { btn_text } = product_size_btn;
+  if (!blok || !blok.sizes) return null;
+  const { sizes } = blok;
+
+  console.log("sizes", sizes);
+  /* const { product_size, sizes, product_size_btn = [] } = blok?.[0] || {};
+  const { btn_text } = product_size_btn; */
 
   return (
     <>
@@ -11,18 +15,13 @@ export default function ProductSizing({ blok }) {
       </div>
       <div className="flex items-center ml-4 mb-10">
         <div className="flex items-center  space-x-4">
-          {blok?.product_size_btn.map(
-            (size) =>
-              size?.btn_text && (
-                <Btn
-                  key={size._uid}
-                  className="w-8 h-8 mr-2 border rounded-sm hover:border-2 focus:border-2"
-                  btn_text={size.btn_text}
-                >
-                  {size.btn_text}
-                </Btn>
-              )
-          )}
+          {sizes.map((size, index) => (
+            <Btn
+              key={index}
+              btn_text={size}
+              className="w-8 h-8 mr-2 border rounded-sm hover:border-2 focus:border-2"
+            />
+          ))}
         </div>
       </div>
     </>

@@ -1,7 +1,7 @@
 import Links from "../reusable-components/Links";
 
 export default function SizeGuide({ blok }) {
-  console.log("blok", blok)
+
   const { guide_link = [], link_subtitle } = blok || {};
 
   return (

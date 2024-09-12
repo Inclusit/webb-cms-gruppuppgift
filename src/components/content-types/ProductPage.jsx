@@ -7,8 +7,14 @@ import Image from "next/image";
 export default function ProductPage({ blok }) {
   
   const { product_text, colors, sizes, size_links, product_image } = blok;
-  console.log("size guide", blok.size_links);
+
   
+  const colormap = colors
+    .map((color) => color.multichoice_clr?.[0]?.multichoice_clr || []).flat();
+  const sizemap = sizes.map((size) => size.multichoice_size?.[0]?.multichoice_size || []).flat();
+
+
+  console.log(sizemap);
   return (
     <>
       <div className="md:flex  md:space-x-8 px-4 mb-60 mt-20 max-w-7xl mx-auto">
@@ -30,11 +36,13 @@ export default function ProductPage({ blok }) {
           <div className=" space-y-4">
             {product_text && <ProductDesc blok={product_text?.[0]} />}
           </div>
+
           <div className="space-y-2">
             <div>
-              <ProductColor blok={colors?.[0]} />
+              <ProductColor blok={{ ...colors[0], colors: colormap }} />
+
               <div className="mt-3">
-                <ProductSizing blok={sizes?.[0]} />
+                <ProductSizing blok={{ ...sizes[0], sizes: sizemap }} />
               </div>
             </div>
             <div className="mt-10">
