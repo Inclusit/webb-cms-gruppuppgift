@@ -3,22 +3,41 @@ import { useSearchParams } from "next/navigation";
 import ProductFilter from "../nestable/product-components/ProductFilter";
 import BtnGrid from "./reusable-components/BtnGrid";
 
+// Funktion för att normalisera strängar
+const normalizeString = (str) => {
+    return str
+        .toLowerCase()
+        .replace(/['\s]/g, ""); // Tar bort apostrofer och mellanslag
+};
+
 export default function ShopList({ blok }) {
     const [selectedCategory, setSelectedCategory] = useState(null);
+    const [selectedSection, setSelectedSection] = useState(null);
+    const [searchTerm, setSearchTerm] = useState("");
 
     // Använd `useSearchParams` för att få query-parametrar från URL:en
     const searchParams = useSearchParams();
-    const category = searchParams.get("category");
+    const section = searchParams.get("section");
+    const searchQuery = searchParams.get("search");
 
-    // Uppdatera vald kategori baserat på URL-query-parametern
+    // Uppdatera vald sektion baserat på URL-query-parametern
     useEffect(() => {
-        if (category) {
-            setSelectedCategory(category.toLowerCase());
+        if (section) {
+            setSelectedSection(normalizeString(section));
+        } else {
+            setSelectedSection(null); // Om sektion är null, visa alla produkter
         }
-    }, [category]);
+    }, [section]);
+
+    // Uppdatera sökterm baserat på URL-query-parametern
+    useEffect(() => {
+        if (searchQuery) {
+            setSearchTerm(normalizeString(searchQuery));
+        }
+    }, [searchQuery]);
 
     const handleFilterClick = (category) => {
-        setSelectedCategory(category.toLowerCase());
+        setSelectedCategory(normalizeString(category));
     };
 
     return (
@@ -39,19 +58,33 @@ export default function ShopList({ blok }) {
                                 </p>
                             );
                         case "btn_grid":
-                            return <BtnGrid key={item._uid} item={item} handleFilterClick={handleFilterClick} />;
+                            return (
+                                <BtnGrid key={item._uid} item={item} handleFilterClick={handleFilterClick} />
+                            );
                         case "product_grid":
-                            // Filtrera produkterna baserat på vald kategori
-                            const filteredProducts = selectedCategory
-                                ? item.product_thumbnails.filter((product) =>
-                                    product.product_category.toLowerCase().includes(selectedCategory)
-                                )
-                                : item.product_thumbnails;
+                            // Filtrera produkterna baserat på vald kategori, sektion och sökterm
+                            const filteredProducts = item.product_thumbnails.filter((product) => {
+                                const normalizedCategory = normalizeString(product.product_category);
+                                const normalizedSection = normalizeString(product.product_section);
+
+                                const matchesCategory = selectedCategory
+                                    ? normalizedCategory.includes(selectedCategory)
+                                    : true;
+                                const matchesSection = selectedSection
+                                    ? normalizedSection === selectedSection
+                                    : true;
+                                const matchesSearch = searchTerm
+                                    ? normalizeString(product.product_name).includes(searchTerm)
+                                    : true;
+
+                                // Om ingen sektion är vald (dvs. selectedSection är null), visa alla produkter
+                                return matchesCategory && (selectedSection ? matchesSection : true) && matchesSearch;
+                            });
 
                             if (filteredProducts.length === 0) {
                                 return (
                                     <p key={item._uid} className="text-red-500 font-semibold m-5">
-                                        Inga produkter hittades för kategorin "{selectedCategory}".
+                                        Inga produkter hittades för vald filtrering.
                                     </p>
                                 );
                             }
@@ -61,6 +94,7 @@ export default function ShopList({ blok }) {
                                     key={item._uid}
                                     products={filteredProducts}
                                     selectedCategory={selectedCategory}
+                                    selectedSection={selectedSection}
                                 />
                             );
                         default:
