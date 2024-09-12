@@ -1,4 +1,4 @@
-"use client"; // Gör komponenten till en client-side komponent
+"use client";
 import Link from 'next/link';
 import { useState } from 'react';
 
@@ -10,13 +10,13 @@ export default function Navigation({ navigationComponent }) {
     };
 
     const handleAllClick = () => {
-        // Stänger dropdown och navigerar till /shop-list utan query-parametrar
+        // Ladda om sidan 
         setIsDropdownOpen(false);
-        window.location.href = '/shop-list'; // Ladda om sidan och visa alla produkter
+        window.location.href = '/shop-list';
     };
 
     const handleLinkClick = () => {
-        // Stänger dropdown när ett alternativ har klickats
+        // Stänger dropdown 
         setIsDropdownOpen(false);
     };
 
@@ -27,7 +27,7 @@ export default function Navigation({ navigationComponent }) {
     return (
         <nav className="navigation">
             <ul className="flex space-x-6">
-                {/* Den första länken "Products" med dropdown */}
+                {/* dropdown */}
                 <li className="relative">
                     <button
                         onClick={handleDropdownToggle}
@@ -76,7 +76,7 @@ export default function Navigation({ navigationComponent }) {
                     )}
                 </li>
 
-                {/* Rendera resterande länkar */}
+                {/*  länkar */}
                 {navigationComponent.Nav_link.slice(1).map((linkItem) => (
                     <li key={linkItem._uid}>
                         <Link href={linkItem.link_text?.cached_url || "#"} className="text-lg hover:underline">

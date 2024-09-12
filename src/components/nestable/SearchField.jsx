@@ -12,7 +12,7 @@ export default function SearchField() {
 
     const handleSearchSubmit = (e) => {
         e.preventDefault();
-        // Ändra URL:en för att inkludera sökfrågan i query-parametrarna
+        // Ändra URL
         router.push(`/shop-list?search=${searchTerm}`);
     };
 
