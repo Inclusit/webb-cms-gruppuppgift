@@ -30,7 +30,7 @@ export default function SearchField({ searchFieldComponent }) {
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                     />
-                    <button type="submit">Sök</button>
+                    <button className="ml-2 bg-white text-black border border-black py-2 px-4 rounded" type="submit">Sök</button>
                 </form>
             ) : (
                 <p>No search field available</p>
