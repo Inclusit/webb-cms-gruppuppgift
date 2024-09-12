@@ -1,9 +1,9 @@
-
-export default function Logo({ logoComponent }) {
+export default function Logo({ logoComponent, linkTitle }) {
+    console.log(logoComponent, linkTitle);
     return (
         <div className="logo">
-            {logoComponent && logoComponent.Logo ? (
-                <h1 className="text-2xl font-bold">{logoComponent.Logo}</h1>
+            {linkTitle ? (
+                <h1 className="text-2xl font-bold">{linkTitle}</h1>
             ) : (
                 <h1 className="text-2xl font-bold">No Logo</h1>
             )}

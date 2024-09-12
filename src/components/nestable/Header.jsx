@@ -13,6 +13,7 @@ export default function Header({ blok }) {
     // Hämta banner, logotyp, navigation, sökfält och shopping bag
     const bannerComponent = blok.find(item => item.component === "text_banner");
     const logoComponent = blok.find(item => item.component === "Logo");
+    const logoLinkComponent = blok.find(item => item.component === "link" && item.link_title === "Ecommerce");
     const navigationComponent = blok.find(item => item.component === "Navigation");
     const searchFieldComponent = blok.find(item => item.component === "Search_field");
     const bagIcon = blok.find(item => item.component === "Icon" && item.Title === "bag");
@@ -28,7 +29,7 @@ export default function Header({ blok }) {
                 <div className="flex items-center space-x-6 flex-grow">
 
                     {/* Logotypen */}
-                    <Logo logoComponent={logoComponent} />
+                    <Logo logoComponent={logoComponent} linkTitle={logoLinkComponent?.link_title} />
 
 
                     {/* Navigationen */}
