@@ -1,3 +1,4 @@
+"use client"; // Gör komponenten till en client-side komponent
 import Link from 'next/link';
 import { useState } from 'react';
 
@@ -6,6 +7,12 @@ export default function Navigation({ navigationComponent }) {
 
     const handleDropdownToggle = () => {
         setIsDropdownOpen(!isDropdownOpen);
+    };
+
+    const handleAllClick = () => {
+        // Stänger dropdown och navigerar till /shop-list utan query-parametrar
+        setIsDropdownOpen(false);
+        window.location.href = '/shop-list'; // Ladda om sidan och visa alla produkter
     };
 
     const handleLinkClick = () => {
@@ -32,13 +39,11 @@ export default function Navigation({ navigationComponent }) {
                     {isDropdownOpen && (
                         <ul className="absolute top-full mt-2 bg-white shadow-lg p-2 rounded-lg space-y-2">
                             <li>
-                                <Link
-                                    href="/shop-list"
-                                    className="block px-4 py-2 hover:bg-gray-200"
-                                    onClick={handleLinkClick}
-                                >
+                                <button
+                                    onClick={handleAllClick}
+                                    className="block px-4 py-2 hover:bg-gray-200 w-full text-left">
                                     All
-                                </Link>
+                                </button>
                             </li>
                             <li>
                                 <Link

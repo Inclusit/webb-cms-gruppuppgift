@@ -1,40 +1,33 @@
 "use client";
-
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-export default function SearchField({ searchFieldComponent }) {
-    const [searchQuery, setSearchQuery] = useState('');
+export default function SearchField() {
+    const [searchTerm, setSearchTerm] = useState("");
     const router = useRouter();
 
-    const handleSearch = (e) => {
+    const handleSearchChange = (e) => {
+        setSearchTerm(e.target.value.toLowerCase());
+    };
+
+    const handleSearchSubmit = (e) => {
         e.preventDefault();
-        router.push(`/shop-list?category=${searchQuery}`);
+        // Ändra URL:en för att inkludera sökfrågan i query-parametrarna
+        router.push(`/shop-list?search=${searchTerm}`);
     };
 
     return (
-        <div className="search flex items-center space-x-2">
-            {searchFieldComponent && searchFieldComponent.search_icon && searchFieldComponent.search_icon[0] && (
-                <img
-                    src={searchFieldComponent.search_icon[0].Icon.filename}
-                    alt="Search Icon"
-                    className="w-6 h-6"
-                />
-            )}
-            {searchFieldComponent ? (
-                <form onSubmit={handleSearch}>
-                    <input
-                        type="text"
-                        placeholder="Search..."
-                        className="searchbar"
-                        value={searchQuery}
-                        onChange={(e) => setSearchQuery(e.target.value)}
-                    />
-                    <button className="ml-2 bg-white text-black border border-black py-2 px-4 rounded" type="submit">Sök</button>
-                </form>
-            ) : (
-                <p>No search field available</p>
-            )}
-        </div>
+        <form onSubmit={handleSearchSubmit} className="flex items-center">
+            <input
+                type="text"
+                placeholder="Sök produkter"
+                value={searchTerm}
+                onChange={handleSearchChange}
+                className="border p-2 rounded"
+            />
+            <button type="submit" className="ml-2 bg-white text-black border border-black py-2 px-4 rounded">
+                Sök
+            </button>
+        </form>
     );
 }
