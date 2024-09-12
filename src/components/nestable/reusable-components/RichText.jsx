@@ -15,6 +15,7 @@ import {
 } from 'storyblok-rich-text-react-renderer';
 
 export default function RichTextDefault({blok}) {
+
     const {richtext, ...rest} = blok;
 
   const resolveNodeHeading = (children, props) => {

@@ -1,32 +1,29 @@
-import SETTINGS from "@/settings";
-import { StoryBlokUtils } from "@/utils/cms";
+import { StoryblokCMS } from "../utils/cms";
 import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
 
-const Storyblok = storyblokInit({
-  accessToken: process.env.NEXT_PUBLIC_STORYBLOK_API_KEY,
+const StoryblokInit = storyblokInit({
+  accessToken: process.env.NEXT_PUBLIC_PREVIEW_STORYBLOK_TOKEN,
   use: [apiPlugin],
 });
 
 export default async function sitemap() {
   try {
-    const pages = (await StoryBlokUtils.getStaticPaths()).filter(
-      (path) => path?.slug?.[0] !== "config"
-    );
+    const pages = await StoryblokCMS.getStaticPaths();
 
     const sitemap = pages.map((page) => {
-      const slug = page?.slug.filter((item) => item !== "");
-      let finalSlug = slug?.length > 0 ? slug.join("/") : slug;
+      const currentUrl = page.slug;
 
-      const url = `${SETTINGS.SITE_URL}/${finalSlug ?? ""}`;
+      return {
+        url: currentUrl,
+        lastModified: new Date(),
+        priority: 1,
+      };
     });
 
-    return {
-      url: url,
-      lastModified: new Date(),
-      priority: 1,
-    };
+    return sitemap;
+    
   } catch (error) {
-    return [];
     console.error(error);
+    return [];
   }
 }
