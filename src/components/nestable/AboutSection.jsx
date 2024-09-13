@@ -33,7 +33,6 @@ export default function AboutSection({ blok }) {
           );
         })}
       </div>
-      <div></div>
     </div>
   );
 }
