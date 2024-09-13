@@ -1,15 +1,11 @@
 "use client";
-import { useState } from "react";
-import { useRouter } from "next/navigation";
 import Navigation from './Navigation';
 import Logo from './Logo';
 import SearchField from './SearchField';
 import HeaderBanner from './HeaderBanner';
+import { useRouter } from 'next/router';
 
 export default function Header({ blok }) {
-    const [searchTerm, setSearchTerm] = useState("");
-    const router = useRouter();
-
     if (!blok || !Array.isArray(blok)) {
         console.error("blok is undefined or not an array");
         return null;
@@ -20,18 +16,7 @@ export default function Header({ blok }) {
     const logoComponent = blok.find(item => item.component === "Logo");
     const logoLinkComponent = blok.find(item => item.component === "link" && item.link_title === "Ecommerce");
     const navigationComponent = blok.find(item => item.component === "Navigation");
-    const searchFieldComponent = blok.find(item => item.component === "Search_field");
     const bagIcon = blok.find(item => item.component === "Icon" && item.Title === "bag");
-
-    const handleSearchChange = (e) => {
-        setSearchTerm(e.target.value.toLowerCase());
-    };
-
-    const handleSearchSubmit = (e) => {
-        e.preventDefault();
-        // Ändra URL:en för att inkludera sökfrågan i query-parametrarna
-        router.push(`/shop-list?search=${searchTerm}`);
-    };
 
     return (
         <>
@@ -49,18 +34,7 @@ export default function Header({ blok }) {
                     <Navigation navigationComponent={navigationComponent} />
 
                     {/* Sökfältet */}
-                    <form onSubmit={handleSearchSubmit} className="flex items-center">
-                        <input
-                            type="text"
-                            placeholder="Sök produkter"
-                            value={searchTerm}
-                            onChange={handleSearchChange}
-                            className="border p-2 rounded"
-                        />
-                        <button type="submit" className="ml-2 bg-white text-black border border-black py-2 px-4 rounded">
-                            Sök
-                        </button>
-                    </form>
+                    <SearchField />
 
                 </div>
 
