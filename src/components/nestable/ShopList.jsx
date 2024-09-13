@@ -3,11 +3,11 @@ import { useSearchParams } from "next/navigation";
 import ProductFilter from "../nestable/product-components/ProductFilter";
 import BtnGrid from "./reusable-components/BtnGrid";
 
-// Funktion för att normalisera strängar
+
 const normalizeString = (str) => {
     return str
         .toLowerCase()
-        .replace(/['\s]/g, ""); // Tar bort apostrofer och mellanslag
+        .replace(/['\s]/g, "");
 };
 
 export default function ShopList({ blok }) {
@@ -15,17 +15,17 @@ export default function ShopList({ blok }) {
     const [selectedSection, setSelectedSection] = useState(null);
     const [searchTerm, setSearchTerm] = useState("");
 
-    // Använd `useSearchParams` för att få query-parametrar från URL:en
+    // query-parametrar från URL
     const searchParams = useSearchParams();
     const section = searchParams.get("section");
     const searchQuery = searchParams.get("search");
 
-    // Uppdatera vald sektion baserat på URL-query-parametern
+    // Uppdatera baserat på URL-query-parametern
     useEffect(() => {
         if (section) {
             setSelectedSection(normalizeString(section));
         } else {
-            setSelectedSection(null); // Om sektion är null, visa alla produkter
+            setSelectedSection(null);
         }
     }, [section]);
 
@@ -77,7 +77,7 @@ export default function ShopList({ blok }) {
                                     ? normalizeString(product.product_name).includes(searchTerm)
                                     : true;
 
-                                // Om ingen sektion är vald (dvs. selectedSection är null), visa alla produkter
+                                // visa alla produkter om null
                                 return matchesCategory && (selectedSection ? matchesSection : true) && matchesSearch;
                             });
 

@@ -1,3 +1,4 @@
+"use client";
 import Link from 'next/link';
 import { useState } from 'react';
 
@@ -8,8 +9,14 @@ export default function Navigation({ navigationComponent }) {
         setIsDropdownOpen(!isDropdownOpen);
     };
 
+    const handleAllClick = () => {
+        // Ladda om sidan 
+        setIsDropdownOpen(false);
+        window.location.href = '/shop-list';
+    };
+
     const handleLinkClick = () => {
-        // Stänger dropdown när ett alternativ har klickats
+        // Stänger dropdown 
         setIsDropdownOpen(false);
     };
 
@@ -20,7 +27,7 @@ export default function Navigation({ navigationComponent }) {
     return (
         <nav className="navigation">
             <ul className="flex space-x-6">
-                {/* Den första länken "Products" med dropdown */}
+                {/* dropdown */}
                 <li className="relative">
                     <button
                         onClick={handleDropdownToggle}
@@ -32,13 +39,11 @@ export default function Navigation({ navigationComponent }) {
                     {isDropdownOpen && (
                         <ul className="absolute top-full mt-2 bg-white shadow-lg p-2 rounded-lg space-y-2">
                             <li>
-                                <Link
-                                    href="/shop-list"
-                                    className="block px-4 py-2 hover:bg-gray-200"
-                                    onClick={handleLinkClick}
-                                >
+                                <button
+                                    onClick={handleAllClick}
+                                    className="block px-4 py-2 hover:bg-gray-200 w-full text-left">
                                     All
-                                </Link>
+                                </button>
                             </li>
                             <li>
                                 <Link
@@ -71,7 +76,7 @@ export default function Navigation({ navigationComponent }) {
                     )}
                 </li>
 
-                {/* Rendera resterande länkar */}
+                {/*  länkar */}
                 {navigationComponent.Nav_link.slice(1).map((linkItem) => (
                     <li key={linkItem._uid}>
                         <Link href={linkItem.link_text?.cached_url || "#"} className="text-lg hover:underline">
