@@ -11,7 +11,8 @@ export default async function sitemap() {
     const pages = await StoryblokCMS.getStaticPaths();
 
     const sitemap = pages.map((page) => {
-      const currentUrl = page.slug;
+      const baseurl = process.env.NEXT_PUBLIC_SITE_URL;
+      const currentUrl = `${baseurl}${page.slug}`;
 
       return {
         url: currentUrl,
@@ -21,7 +22,6 @@ export default async function sitemap() {
     });
 
     return sitemap;
-    
   } catch (error) {
     console.error(error);
     return [];

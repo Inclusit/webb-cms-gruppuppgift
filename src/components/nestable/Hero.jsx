@@ -9,7 +9,6 @@ export default function Hero({ blok }) {
   const text_field = hero_description?.[0]?.text_field || "Default Description";
   const title_text = hero_title?.[0]?.title_text || "Default Title";
   
- 
 
   return (
     <>

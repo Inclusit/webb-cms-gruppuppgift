@@ -5,14 +5,14 @@ import SizeGuide from "../nestable/product-components/SizeGuide";
 import Image from "next/image";
 
 export default function ProductPage({ blok }) {
-  
   const { product_text, colors, sizes, size_links, product_image } = blok;
 
-  
   const colormap = colors
-    .map((color) => color.multichoice_clr?.[0]?.multichoice_clr || []).flat();
-  const sizemap = sizes.map((size) => size.multichoice_size?.[0]?.multichoice_size || []).flat();
-
+    ?.map((color) => color.multichoice_clr?.[0]?.multichoice_clr || [])
+    .flat();
+  const sizemap = sizes
+    ?.map((size) => size.multichoice_size?.[0]?.multichoice_size || [])
+    .flat();
 
   console.log(sizemap);
   return (
@@ -39,10 +39,10 @@ export default function ProductPage({ blok }) {
 
           <div className="space-y-2">
             <div>
-              <ProductColor blok={{ ...colors[0], colors: colormap }} />
+              <ProductColor blok={{ ...colors?.[0], colors: colormap }} />
 
               <div className="mt-3">
-                <ProductSizing blok={{ ...sizes[0], sizes: sizemap }} />
+                <ProductSizing blok={{ ...sizes?.[0], sizes: sizemap }} />
               </div>
             </div>
             <div className="mt-10">
